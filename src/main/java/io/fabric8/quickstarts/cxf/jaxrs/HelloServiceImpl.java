@@ -26,10 +26,14 @@ public class HelloServiceImpl implements HelloService {
     }
 
     public String sayHello(String a) {
+      try{
         InetAddress inetAddress = InetAddress.getLocalHost();
         System.out.println("IP Address:- " + inetAddress.getHostAddress());
         System.out.println("Host Name:- " + inetAddress.getHostName());
         return "Hello " + a + ", Welcome to CXF RS Spring Boot World!!! DT (NODO: "+ inetAddress.getHostAddress()+ " |||| "+inetAddress.getHostName()+")";
+      }catch(Exception e){
+        return "Se cayo el servicio: "+e;
+      }
     }
 
 }
